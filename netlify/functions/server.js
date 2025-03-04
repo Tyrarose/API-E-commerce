@@ -1,7 +1,12 @@
 import express from 'express';
+import serverless from 'serverless-http';
 import { router } from '../../routes/index.js';
 
 const app = express();
+
+// Middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Set view engine
 app.set('view engine', 'ejs');
@@ -13,22 +18,19 @@ app.use(express.static('public'));
 // Routes
 app.use('/', router);
 
-// Serverless handler
-export const handler = async (event, context) => {
-  return new Promise((resolve, reject) => {
-    const serverless = app(event, context);
-    serverless
-      .then(response => {
-        resolve({
-          statusCode: 200,
-          body: JSON.stringify(response)
-        });
-      })
-      .catch(error => {
-        resolve({
-          statusCode: 500,
-          body: JSON.stringify({ error: error.message })
-        });
-      });
-  });
-};
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err);
+  res.status(500).json({ error: 'Internal Server Error' });
+});
+
+// Create handler with specific serverless configuration
+const handler = serverless(app, {
+  binary: true,
+  request: {
+    rawBody: true
+  }
+});
+
+// Export wrapped handler
+export { handler };

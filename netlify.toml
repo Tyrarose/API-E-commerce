@@ -1,5 +1,5 @@
 [build]
-  command = "npm run build"
+  command = "npm install"
   functions = "netlify/functions"
   publish = "public"
 
@@ -10,3 +10,7 @@
 
 [functions]
   node_bundler = "esbuild"
+  external_node_modules = ["express"]
+
+[build.environment]
+  NODE_VERSION = "18"
