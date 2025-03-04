@@ -121,13 +121,17 @@ body {
 	padding: 20px;
 }
 .product-card {
-	background: white;
-	border-radius: 15px;
-	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-	overflow: hidden;
-	transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-	text-align: center;
-	padding: 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensures the button aligns at the bottom */
+    height: 100%; /* Keeps all cards the same height */
 }
 .product-card:hover {
 	transform: translateY(-8px);
@@ -141,12 +145,21 @@ body {
 }
 .product-info {
 	padding: 15px 0;
+	flex-grow: 1; /* Makes sure description, title, and price expand evenly */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .product-title {
-	font-size: 1.5rem;
+	font-size: 1.1rem;
 	font-weight: bold;
 	color: #333;
-	margin: 10px 0;
+	margin: 5px 0;
+}
+.product-description {
+    font-size: 0.9rem; /* Smaller and more readable */
+    color: #666;
+    margin-bottom: 10px;
 }
 .price {
 	color: #ff5722;
@@ -154,17 +167,47 @@ body {
 	font-weight: bold;
 }
 .buy-btn {
-	display: inline-block;
+	display: block;
 	background: #ff5722;
 	color: white;
 	padding: 12px 18px;
 	border-radius: 10px;
 	text-decoration: none;
-	font-size: 1.3rem;
+	font-size: 1.1rem;
 	margin-top: 10px;
 	transition: background 0.3s, transform 0.2s;
+	margin-top: auto;
 }
 .buy-btn:hover {
 	background: #e64a19;
 	transform: scale(1.05);
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.pagination a {
+    background: #ff5722;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.pagination a:hover {
+    background: #e64a19;
+    transform: scale(1.05);
+}
+
+.pagination span {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
 }

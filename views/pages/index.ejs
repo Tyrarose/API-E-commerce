@@ -10,19 +10,38 @@
 
     <section id="products" class="store">
         <div class="container">
-            <h2 class="text-center">Our Products</h2>
+            <h2 class="text-center">Our Garage Items</h2>
             <div class="product-grid">
                 <% products.forEach(function(product) { %>
                     <div class="product-card">
                         <img src="<%= product.image %>" alt="<%= product.title %>">
                         <div class="product-info">
                             <h5 class="product-title"><%= product.title %></h5>
+                            <p class="product-description">
+                                <%= product.description.length > 120 ? product.description.substring(0, 120) + '...' : product.description %>
+                            </p>
                             <p class="price">₱<%= product.price %></p>
                             <a href="#" class="buy-btn">Buy Now</a>
                         </div>
                     </div>
                 <% }); %>
             </div>
+                     
+    
+            <!-- Pagination -->
+            <div class="pagination">
+                <% if (currentPage > 1) { %>
+                    <a href="/?page=<%= currentPage - 1 %>">« Previous</a>
+                <% } %>
+
+                <span>Page <%= currentPage %> of <%= totalPages %></span>
+
+                <% if (currentPage < totalPages) { %>
+                    <a href="/?page=<%= currentPage + 1 %>">Next »</a>
+                <% } %>
+            </div>
+
         </div>
     </section>
+    
     <%- include("footer.ejs") %>
