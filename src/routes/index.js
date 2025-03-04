@@ -1,11 +1,10 @@
 import express from "express";
-import axios from "axios";
-
 const router = express.Router();
+
 const PRODUCTS_PER_PAGE = 8; // Number of products per page
 
 // Home page route with pagination
-router.get("/", async (req, res) => {
+router.get("/products", async (req, res) => {
     try {
         const response = await axios.get("https://fakestoreapi.com/products");
         const allProducts = response.data;
@@ -21,8 +20,8 @@ router.get("/", async (req, res) => {
         });
     } catch (error) {
         console.error(error);
-        res.send("Error fetching data");
+        res.status(500).json({ error: error.message });
     }
 });
 
-export { router };
+export { router as productRoutes };
