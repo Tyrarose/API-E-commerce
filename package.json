@@ -5,8 +5,8 @@
 	"main": "index.js",
 	"type": "module",
 	"scripts": {
-		"build": "npm install",
-		"dev": "netlify dev"
+		"build": "npm install && npm run copy-files",
+		"copy-files": "cp -r node_modules/axios/dist/node/* netlify/functions/"
 	},
 	"keywords": [],
 	"author": "",
