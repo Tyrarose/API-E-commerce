@@ -1,3 +1,4 @@
+import axios from "axios"; // Explicitly import axios
 import express from "express";
 import serverless from "serverless-http";
 import { router as indexRouter } from "../../routes/index.js";
