@@ -1,0 +1,23 @@
+{
+	"name": "section-29---use-a-public-api---e-commerce",
+	"version": "1.0.0",
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+		"build": "npm install",
+		"dev": "netlify dev",
+		"start": "node server.js"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"axios": "^1.8.1",
+		"bootstrap": "^5.3.3",
+		"ejs": "^3.1.9",
+		"express": "^4.19.1",
+		"jquery": "^3.7.1",
+		"serverless-http": "^3.2.0"
+	},
+	"description": ""
+}
