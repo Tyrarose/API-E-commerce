@@ -2,10 +2,11 @@
 	"name": "section-29---use-a-public-api---e-commerce",
 	"version": "1.0.0",
 	"description": "",
-	"main": "index.js",
+	"main": "app.js",
 	"type": "module",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "node app.js"
 	},
 	"keywords": [],
 	"author": "",
@@ -14,7 +15,7 @@
 		"axios": "^1.6.8",
 		"bootstrap": "^5.3.3",
 		"ejs": "^3.1.9",
-		"express": "^4.19.1",
+		"express": "^4.21.2",
 		"jquery": "^3.7.1"
 	}
 }
